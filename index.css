@@ -1,0 +1,239 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(76 175 80 / 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+.cover span {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container {
+  width: 800px;
+  margin: auto;
+  background-color: #ddd;
+  padding: 10px 20px;
+}
+.title {
+  margin-bottom: 10px;
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #00bcd4;
+  font-size: 15px;
+}
+.timing,
+.levels {
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+  border: 2px solid #00bcd4;
+  background-color: white;
+  padding: 10px;
+  z-index: 20;
+  position: relative;
+}
+.timing {
+  display: none;
+  justify-content: center;
+  font-weight: bold;
+  color: #00bcd4;
+}
+.levels select {
+  border: 1px solid #00bcd4;
+  color: #00bcd4;
+  font-weight: bold;
+  border-radius: 3px;
+  outline: none;
+}
+.levels .time span {
+  font-weight: bold;
+  color: #00bcd4;
+}
+.hello span {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #00bcd4;
+}
+.wrong-tries span {
+  font-weight: bold;
+  color: #00bcd4;
+}
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+}
+.block {
+  pointer-events: none;
+}
+.game .box {
+  flex-basis: calc((100% - 40px) / 5);
+  height: 144px;
+  border: 2px solid #00bcd4;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 500ms;
+  -webkit-transition: 500ms;
+  -moz-transition: 500ms;
+  -ms-transition: 500ms;
+  -o-transition: 500ms;
+}
+.game .box.rotated {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.game .box div {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.front {
+  position: absolute;
+  background-color: #222;
+  z-index: 2;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.front::after {
+  content: "!";
+  color: aliceblue;
+  font-size: 120px;
+}
+.back {
+  background-color: aliceblue;
+  z-index: 1;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.game .box img {
+  max-width: 100%;
+}
+
+.result,
+.time-out {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(76 175 80 / 90%);
+  z-index: 10;
+  color: #4caf50;
+  flex-flow: column wrap;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.con {
+  letter-spacing: 10px;
+  padding: 10px;
+  background-color: #ff5722;
+  color: white;
+}
+.sco {
+  background-color: white;
+  color: #ff5722;
+  font-size: 25px;
+  padding: 5px 10px;
+}
+.play-again {
+  background-color: #333;
+  font-size: 14px;
+  padding: 5px 10px;
+  font-weight: bold;
+  margin: 10px;
+  color: #ff5722d1;
+  text-transform: capitalize;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 2px 2px 1px 1px #ff5722;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.leadership {
+  background-color: #00bcd4;
+  padding: 20px;
+  margin: 20px auto;
+}
+.high-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.high-score i {
+  text-shadow: 2px -1px 2px white;
+  font-size: 60px;
+  color: #ffc107;
+  z-index: 3;
+}
+.high-score span.name {
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+  font-size: 25px;
+  background-color: #ffc107;
+  padding: 10px 30px;
+  border-radius: 10px 0;
+  margin: -5px 0 0;
+  box-shadow: 2px -2px 3px 0px white;
+  z-index: 2;
+}
+.high-score span.time {
+  background-color: #ffc107;
+  padding: 5px;
+  color: white;
+  border-radius: 0 0 7px 7px;
+  box-shadow: 2px -2px 3px 0px white;
+  z-index: 1;
+  text-transform: uppercase;
+  font-size: 12px;
+}
